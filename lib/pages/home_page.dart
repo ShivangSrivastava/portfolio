@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
               fit: BoxFit.cover,
             ),
           ),
-          const Align(alignment: Alignment(0.7, -0.2), child: DayWidget()),
+          const Align(alignment: Alignment(1, -0.2), child: DayWidget()),
           ...windows.map((window) {
             int windowId = window.keys.first;
             return Window(
