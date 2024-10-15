@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 class Window extends StatefulWidget {
   final Widget child;
   final String title;
-  final VoidCallback? closeWindow; // Close callback function
+  final VoidCallback? closeWindow; 
 
   const Window({
     super.key,
     required this.child,
     required this.title,
-    required this.closeWindow, // Accept closeWindow function
+    required this.closeWindow,
   });
 
   @override
-  _WindowState createState() => _WindowState();
+  State<Window> createState() => _WindowState();
 }
 
 class _WindowState extends State<Window> {
