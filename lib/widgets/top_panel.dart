@@ -17,9 +17,40 @@ class TopPanel extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
-              "Workspaces",
-              style: TextStyle(fontSize: 12),
+            GestureDetector(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('TODO'),
+                    content: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('GNOME Memics ✅'),
+                        Text('Moveable/resizeable window ✅'),
+                        Text('Android Memics ❌'),
+                        Text('Inbuilt browser support ❌'),
+                        Text('Working terminal ❌'),
+                        Text('Working apps ❌'),
+                      ],
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Close'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              child: const Text(
+                "Workspaces",
+                style: TextStyle(fontSize: 12),
+              ),
             ),
             StreamBuilder<String>(
                 stream: getDateTime(),
@@ -69,7 +100,7 @@ class TopPanel extends StatelessWidget {
 
 Stream<String> getDateTime() {
   return Stream.periodic(
-    const Duration(seconds: 10),
+    const Duration(seconds: 1),
     (computationCount) {
       DateTime now = DateTime.now();
       return DateFormat('EEE MMM d  h:mma').format(now);

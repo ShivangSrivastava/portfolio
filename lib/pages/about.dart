@@ -8,11 +8,12 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String aboutMe = """
-👋 Hey there! I'm a code enthusiast who turns caffeine into creative solutions. Friends say I can talk to computers, but really, I just debug my way through life!
+19-year-old developer from UP, India 
 
-💻 A proud Linux lover, I believe every desktop should look like a rockstar’s album cover. When I'm not exploring GNOME extensions, you can find me tinkering with code and dreaming about the perfect cup of coffee.
-
-🌍 My toolkit includes Python, Flutter, and a sprinkle of C. If you need me, I’ll be somewhere in the digital realm, battling bugs or brainstorming my next coding adventure!""";
+Skills:
+Languages: Rust (learning), Python (scripting & backend), Dart (Flutter), TypeScript, JavaScript
+Frameworks & Tools: Flutter (mobile apps), Express, Flask, Shell Scripting
+""";
 
     return Container(
       padding: const EdgeInsets.all(8),
@@ -38,12 +39,14 @@ class About extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Expanded(
-            child: Text(
-              aboutMe,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                letterSpacing: 0,
-                fontFamily: GoogleFonts.firaMono().fontFamily,
+            child: SingleChildScrollView(
+              child: Text(
+                aboutMe,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  letterSpacing: 0,
+                  fontFamily: GoogleFonts.firaMono().fontFamily,
+                ),
               ),
             ),
           ),

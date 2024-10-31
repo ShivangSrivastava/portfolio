@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Window extends StatefulWidget {
   final Widget child;
   final String title;
-  final VoidCallback? closeWindow; 
+  final VoidCallback? closeWindow;
 
   const Window({
     super.key,
@@ -38,8 +38,8 @@ class _WindowState extends State<Window> {
               }
             },
             child: Container(
-              width: (width > 600) ? width : 600,
-              height: (height > 400) ? height : 400,
+              width: (width > 600) ? width + 20 : 600,
+              height: (height > 400) ? height + 20 : 400,
               decoration: const BoxDecoration(
                 color: Color(0xff28282b),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -63,10 +63,13 @@ class _WindowState extends State<Window> {
                         });
                       },
                       onPanEnd: (_) => resizing = false,
-                      child: Container(
-                        width: 15,
-                        height: 15,
-                        color: Colors.black12,
+                      child: MouseRegion(
+                        cursor: SystemMouseCursors.resizeDownRight,
+                        child: Container(
+                          width: 15,
+                          height: 15,
+                          color: Colors.black12,
+                        ),
                       ),
                     ),
                   ),
@@ -127,55 +130,50 @@ class TitleBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40,
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(width: 15),
-                GestureDetector(
-                  onTap: closeWindow, // Call the closeWindow function here
-                  child: Container(
-                    height: 10,
-                    width: 10,
-                    decoration: const ShapeDecoration(
-                      shape: CircleBorder(),
-                      color: Colors.redAccent,
+    return MouseRegion(
+      cursor: SystemMouseCursors.move,
+      child: SizedBox(
+        height: 40,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(width: 15),
+                  GestureDetector(
+                    onTap: closeWindow, // Call the closeWindow function here
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: Container(
+                        height: 15,
+                        width: 15,
+                        decoration: const ShapeDecoration(
+                          shape: CircleBorder(),
+                          color: Colors.redAccent,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  height: 10,
-                  width: 10,
-                  decoration: const ShapeDecoration(
-                    shape: CircleBorder(),
-                    color: Colors.yellowAccent,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              title,
-              style: const TextStyle(color: Colors.white54),
+            Align(
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: const TextStyle(color: Colors.white54),
+              ),
             ),
-          ),
-          const Align(
-            alignment: Alignment.bottomCenter,
-            child: Divider(
-              height: 10,
-            ),
-          )
-        ],
+            const Align(
+              alignment: Alignment.bottomCenter,
+              child: Divider(
+                height: 10,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -26,12 +27,81 @@
   <meta name="apple-mobile-web-app-title" content="portfolio">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>portfolio</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: grid;
+      place-content: center;
+      background: #28282b;
+    }
+
+    .loading {
+      width: 54px;
+      height: 54px;
+      position: relative;
+      transform: rotate(15deg);
+      transition: all .3s ease;
+    }
+
+    .loading .orange {
+      position: absolute;
+      stroke-width: 4;
+      stroke: #ff9933;
+      stroke-dasharray: 20, 180;
+      animation: dash 1s linear infinite;
+    }
+
+    @keyframes dash {
+      0% {
+        stroke-dashoffset: 0;
+      }
+
+      100% {
+        stroke-dashoffset: -200;
+      }
+    }
+
+    .loading:hover {
+      scale: 4;
+    }
+  </style>
+
 </head>
+
 <body>
+
+  <div class="loading" id="splash-screen">
+    <svg class="orange">
+      <g fill="none">
+        <rect x="2" y="2" width="50" height="50" />
+      </g>
+    </svg>
+    <svg class="grey">
+      <g fill="none">
+        <rect x="5" y="5" width="44" height="44" stroke="#ccc" stroke-width="2" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    window.addEventListener("flutter-first-frame", function () {
+      document.getElementById("splash-screen").style.display = "none";
+    });
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
+
 </html>

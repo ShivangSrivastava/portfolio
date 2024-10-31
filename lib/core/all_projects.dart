@@ -15,38 +15,35 @@ class ProjectDetail {
 List<ProjectDetail> allProjects = [
   ProjectDetail(
       name: "GNOME Internet Speed Meter",
-      desc:
-          "A real-time internet speed meter for your GNOME top bar, easy to set up with detailed configuration instructions on GitHub.",
+      desc: "Real-time internet speed meter for GNOME top bar",
       github: "https://github.com/ShivangSrivastava/speed_meter",
       language: ["GNOME", "Shell Script"]),
   ProjectDetail(
       name: "Midnight Modern",
-      desc:
-          "A sleek and stylish theme for Visual Studio Code, designed to enhance your coding experience.",
-      github: "https://marketplace.visualstudio.com/items?itemName=ShivangSrivastava.midnight-modern",
+      desc: "Sleek, stylish theme to enhance VS Code.",
+      github:
+          "https://marketplace.visualstudio.com/items?itemName=ShivangSrivastava.midnight-modern",
       language: ["JavaScript"]),
   ProjectDetail(
       name: "SpamDetect",
-      desc:
-          "A robust spam mail detector that utilizes Flutter for the frontend and Python (FastAPI & scikit-learn) for the backend to efficiently distinguish between spam and ham messages.",
+      desc: "Spam detector with Flutter UI and Python backend.",
       github: "https://github.com/ShivangSrivastava/SpamDetect",
       language: ["Flutter", "Python"]),
   ProjectDetail(
       name: "House Prediction App",
       desc:
-          "A Flutter-based app that predicts house prices using a trained model with a dataset of over 5,000 entries, powered by FastAPI and scikit-learn.",
+          "Flutter app for house price prediction with FastAPI and scikit-learn model.",
       github: "https://github.com/ShivangSrivastava/house_price_prediction",
       language: ["Flutter", "Python"]),
   ProjectDetail(
       name: "Neon_X",
       desc:
-          "An extension of velocity_x for Flutter, offering enhanced features like font weight, Google Fonts, and stylish widgets for timelines.",
+          "Velocity_x extension for Flutter with font and widget enhancements",
       github: "https://github.com/ShivangSrivastava/neon_x",
       language: ["Flutter"]),
   ProjectDetail(
       name: "Google Files UI Clone",
-      desc:
-          "A Flutter recreation of the Google Files interface, customized with a personal touch for a familiar yet unique user experience.",
+      desc: "Flutter app mimicking Google Files with a unique twist.",
       github: "https://github.com/ShivangSrivastava/google_file_clone",
       language: ["Flutter"]),
 ];

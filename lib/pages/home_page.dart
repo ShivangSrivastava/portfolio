@@ -31,8 +31,7 @@ class _HomePageState extends State<HomePage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Notice"),
-          content: const Text(
-              "Please view in desktop mode for a better experience."),
+          content: const Text("Please view in desktop better experience."),
           actions: <Widget>[
             TextButton(
               child: const Text("OK"),
